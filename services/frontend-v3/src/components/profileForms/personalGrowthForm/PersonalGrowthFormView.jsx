@@ -80,7 +80,7 @@ const PersonalGrowthFormView = ({
     skeleton: {
       width: "100%",
       maxWidth: "900px",
-      minHeight: "400px",
+      minHeight: "324px",
       background: "#fff",
       padding: "30px 30px",
     },
@@ -242,31 +242,6 @@ const PersonalGrowthFormView = ({
         setSavedValues(values);
         await saveDataToDB(values);
         openNotificationWithIcon({ type: "success" });
-      })
-      .catch((error) => {
-        if (error.isAxiosError) {
-          handleError(error, "message");
-        } else {
-          openNotificationWithIcon({
-            type: "error",
-          });
-        }
-      });
-  };
-
-  /*
-   * save and next
-   *
-   * save and redirect to next step in setup
-   */
-  const onSaveAndNext = async () => {
-    form
-      .validateFields()
-      .then(async () => {
-        const values = form.getFieldValue();
-        await saveDataToDB(values);
-        setFieldsChanged(false);
-        history.push("/profile/create/step/7");
       })
       .catch((error) => {
         if (error.isAxiosError) {
@@ -657,7 +632,6 @@ const PersonalGrowthFormView = ({
           <FormControlButton
             formType={formType}
             onSave={onSave}
-            onSaveAndNext={onSaveAndNext}
             onSaveAndFinish={onSaveAndFinish}
             onReset={onReset}
             onFinish={onFinish}
