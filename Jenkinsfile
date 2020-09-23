@@ -19,8 +19,8 @@ pipeline {
     }
 
     stages {
-        stage('build'){
-            parallel{
+//        stage('build'){
+            //parallel{
                 stage('build-backend') {
                     steps {
 		        	    dir("${BACKEND_DIR}") {
@@ -40,8 +40,8 @@ pipeline {
             }
         }
         
-            }
-        }
+//            }
+  //      }
 
 
     }
