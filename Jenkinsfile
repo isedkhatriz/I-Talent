@@ -22,10 +22,12 @@ pipeline {
 //        stage('build'){
             //parallel{
                 stage('node setup') {
-                    sh """
-                        nvm install 12.6.0
-                        nvm use 12.6.0
-                    """
+                    steps {
+                        sh """
+                            nvm install 12.6.0
+                            nvm use 12.6.0
+                        """
+                    }
                 }
                 stage('build-backend') {
                     steps {
