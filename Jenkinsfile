@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        label '!container-utils'
+        label 'nodejs'
     }
 
     options {
@@ -21,6 +21,12 @@ pipeline {
     stages {
 //        stage('build'){
             //parallel{
+                stage('node setup') {
+                    sh """
+                        nvm install 12.6.0
+                        nvm use 12.6.0
+                    """
+                }
                 stage('build-backend') {
                     steps {
 		        	    dir("${BACKEND_DIR}") {
