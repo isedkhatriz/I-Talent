@@ -24,6 +24,7 @@ pipeline {
                 stage('node setup') {
                     steps {
                         sh """
+                            source $NVM_DIR/nvm.sh
                             nvm install 12.6.0
                             nvm use 12.6.0
                             nvm --version
