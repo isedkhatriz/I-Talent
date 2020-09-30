@@ -50,7 +50,7 @@ pipeline {
                     steps {
                         dir("${FRONTEND_DIR}") {
                             sh """
-                                nodeUtils.installAndUseNode("12.6.0")
+                           //     nodeUtils.installAndUseNode("12.6.0")
                                 npm i eslint
                                 npm i eslint-config-airbnb
                                 npm i eslint-config-prettier
