@@ -20,6 +20,17 @@ pipeline {
     }
 
     stages {
+        stage('node setup') {
+            steps {
+                sh """
+                    unset NPM_CONFIG_PREFIX
+                    source $NVM_DIR/nvm.sh
+                    nvm install 12.6.0
+                    nvm use 12.6.0
+                    nvm --version
+                """
+            }
+        }
 
         stage('i18-check') {
             steps {
@@ -32,19 +43,19 @@ pipeline {
         }
 
         stage('Linting') {
-            parallel {
-                // stage('backend') {
-                //     steps {
-                //         dir("${BACKEND_DIR}") {
+            //parallel {
+                 stage('backend') {
+                     steps {
+                         dir("${BACKEND_DIR}") {
+                             sh 'yarn add eslint'
                 //             sh 'yarn add eslint'
                 //             sh 'yarn add eslint'
                 //             sh 'yarn add eslint'
-                //             sh 'yarn add eslint'
-                            
-                //             sh 'npm lint'
-                //         }
-                //     }
-                // }
+                          
+                             sh 'npm lint'
+                         }
+                     }
+                 }
                 stage('frontend') {
                     steps {
                         dir("${FRONTEND_DIR}") {
@@ -57,7 +68,7 @@ pipeline {
                     }
                 }
 
-            }
+           //}
         }
 
         stage('build-backend') {
