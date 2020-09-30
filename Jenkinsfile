@@ -64,7 +64,7 @@ pipeline {
                             sh """
                                 unset NPM_CONFIG_PREFIX
                                 source $NVM_DIR/nvm.sh
-                                //nvm use 12.6.0
+                                nvm use 12.6.0
                                 npm i eslint
                                 npm i eslint-config-airbnb
                                 npm i eslint-config-prettier
