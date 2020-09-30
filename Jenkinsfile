@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        stage('Linting') {
+        //stage('Linting') {
             //parallel {
                 /*
                  stage('backend') {
@@ -62,7 +62,7 @@ pipeline {
                 }
 
           // }
-        }
+        //}
 /*
         stage('build-backend') {
             steps {
