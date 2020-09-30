@@ -49,14 +49,14 @@ pipeline {
                 stage('frontend') {
                     steps {
                         dir("${FRONTEND_DIR}") {
-                            sh """
-                                nodeUtils.installAndUseNode('12.6.0')
+                            script {
+                                nodeUtils.installAndUseNode("12.6.0")
                                 npm i eslint
                                 npm i eslint-config-airbnb
                                 npm i eslint-config-prettier
                                 npm i eslint-plugin-import
                                 npm run lint
-                            """
+                            }
                         }
                     }
                 }
