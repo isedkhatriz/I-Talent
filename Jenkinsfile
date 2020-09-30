@@ -20,18 +20,6 @@ pipeline {
     }
 
     stages {
-        stage('node setup') {
-            steps {
-                sh """
-                    unset NPM_CONFIG_PREFIX
-                    source $NVM_DIR/nvm.sh
-                    nvm install 12.6.0
-                    nvm use 12.6.0
-                    nvm --version
-                """
-            }
-        }
-
         stage('i18-check') {
             steps {
                 dir("${FRONTEND_DIR_I18}") {
