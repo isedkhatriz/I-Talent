@@ -44,6 +44,7 @@ pipeline {
 
         stage('Linting') {
             parallel {
+                /*
                  stage('backend') {
                      steps {
                          dir("${BACKEND_DIR}") {
@@ -56,10 +57,12 @@ pipeline {
                          }
                      }
                  }
+                 */
                 stage('frontend') {
                     steps {
                         dir("${FRONTEND_DIR}") {
                             sh """
+                                unset NPM_CONFIG_PREFIX
                                 nvm use 12.6.0
                                 npm i eslint
                                 npm i eslint-config-airbnb
@@ -73,7 +76,7 @@ pipeline {
 
            }
         }
-
+/*
         stage('build-backend') {
             steps {
 			    dir("${BACKEND_DIR}") {
@@ -93,5 +96,6 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
