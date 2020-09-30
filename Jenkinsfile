@@ -51,7 +51,9 @@ pipeline {
                         dir("${FRONTEND_DIR}") {
                             script {
                                 nodeUtils.installAndUseNode("12.6.0")
-                                npm i eslint
+                                sh """
+                                    npm i eslint
+                                """
                                 //npm i eslint-config-airbnb
                                 //npm i eslint-config-prettier
                                 //npm i eslint-plugin-import
