@@ -43,7 +43,7 @@ pipeline {
         }
 
         stage('Linting') {
-            //parallel {
+            parallel {
                  stage('backend') {
                      steps {
                          dir("${BACKEND_DIR}") {
@@ -68,7 +68,7 @@ pipeline {
                     }
                 }
 
-           //}
+           }
         }
 
         stage('build-backend') {
