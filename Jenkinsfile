@@ -1,4 +1,4 @@
-@Library('ised-cicd-lib') _
+@Library('ised-cicd-lib@COPS-4760') _
 
 pipeline {
     agent {
@@ -62,9 +62,7 @@ pipeline {
                     steps {
                         dir("${FRONTEND_DIR}") {
                             sh """
-                                unset NPM_CONFIG_PREFIX
-                                source $NVM_DIR/nvm.sh
-                                nvm use 12.6.0
+                                nodeUtils.installAndUseNode("12.6.0")
                                 npm i eslint
                                 npm i eslint-config-airbnb
                                 npm i eslint-config-prettier
