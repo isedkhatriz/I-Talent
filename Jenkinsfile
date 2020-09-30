@@ -59,12 +59,14 @@ pipeline {
                 stage('frontend') {
                     steps {
                         dir("${FRONTEND_DIR}") {
-                            nvm use 12.6.0
-                            npm i eslint
-                            sh 'npm i eslint-config-airbnb'
-                            sh 'npm i eslint-config-prettier'
-                            sh 'npm i eslint-plugin-import'
-                            sh 'npm run lint'
+                            sh """
+                                nvm use 12.6.0
+                                npm i eslint
+                                npm i eslint-config-airbnb
+                                npm i eslint-config-prettier
+                                npm i eslint-plugin-import
+                                npm run lint
+                            """
                         }
                     }
                 }
