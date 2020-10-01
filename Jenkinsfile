@@ -40,7 +40,6 @@ pipeline {
                 //             sh 'yarn add eslint'
                 //             sh 'yarn add eslint'
                 //             sh 'yarn add eslint'
-                          
                 //             sh 'npm lint'
                          }
                      }
