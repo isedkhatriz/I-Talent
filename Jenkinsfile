@@ -2,7 +2,7 @@
 
 pipeline {
     agent {
-        label 'nodejs'
+        label 'nodejs-test'
     }
 
     options {
