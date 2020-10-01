@@ -49,8 +49,8 @@ pipeline {
                     steps {
                         dir("${FRONTEND_DIR}") {
                             script {
-                                nodeUtils.installAndUseNode("12.6.0")
                                 sh """
+                                    ised_nvm "12.6.0"
                                     npm i eslint
                                 """
                                 //npm i eslint-config-airbnb
