@@ -50,8 +50,10 @@ pipeline {
                         dir("${FRONTEND_DIR}") {
                             script {
                                 sh """
-                                    ised_nvm "12.6.0"
-                                    nvm version
+                                    #ised_nvm "12.6.0"
+                                    unset NPM_CONFIG_PREFIX
+                                    source $NVM_DIR/nvm.sh
+                                    nvm install "12.6.0"
                                     npm i eslint
                                 """
                                 //npm i eslint-config-airbnb
