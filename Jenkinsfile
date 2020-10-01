@@ -51,6 +51,7 @@ pipeline {
                             script {
                                 sh """
                                     ised_nvm "12.6.0"
+                                    nvm version
                                     npm i eslint
                                 """
                                 //npm i eslint-config-airbnb
